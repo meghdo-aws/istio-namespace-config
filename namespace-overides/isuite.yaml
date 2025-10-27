@@ -5,11 +5,7 @@
 # NAMESPACE CONFIGURATION
 #################################################
 namespace:
-  create: true
-  name: "isuite"
-  istioInjection: true
-  labels: {}
-  annotations: {}
+  name: "namespace2"
   
   resourceQuota:
     enabled: false
