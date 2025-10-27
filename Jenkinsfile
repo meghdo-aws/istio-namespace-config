@@ -37,6 +37,17 @@ pipeline {
                                 --install 
                       """
                     }
+                    container('copy-secret') {
+                      sh """
+                        kubectl get secret db-password \
+                                -n default -o yaml | \
+                              grep -v '^\s*namespace:\s' | \
+                              grep -v '^\s*uid:\s' | \
+                              grep -v '^\s*resourceVersion:\s' | \
+                              grep -v '^\s*creationTimestamp:\s' | \
+                              kubectl apply -n ${params.namespace} -f -
+                      """
+                    }
                 }
             }
         }
