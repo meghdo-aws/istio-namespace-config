@@ -5,11 +5,8 @@
 # NAMESPACE CONFIGURATION
 #################################################
 namespace:
-  create: true
   name: ""
-  istioInjection: true
-  labels: {}
-  annotations: {}
+
   
   resourceQuota:
     enabled: false
