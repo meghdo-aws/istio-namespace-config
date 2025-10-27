@@ -6,11 +6,11 @@ pipeline {
             }
     }
     parameters {
-       string(name: 'namespace', defaultValue: 'namespace1', description: 'A namespace yaml should be present tin the namespace-overides folder')
+       string(name: 'namespace', description: 'A namespace yaml should be present tin the namespace-overides folder')
      }
     environment {
-        CLUSTER = 'pristine-cluster'
-        REGION = 'eu-north-1'
+        CLUSTER = 'meghdo-cluster'
+        REGION = 'us-east-1'
     }
     stages {
         stage('Connect to EKS Cluster') {
