@@ -39,13 +39,13 @@ pipeline {
                     }
                     container('copy-secret') {
                       sh """
-                            kubectl label namespace ''' + params.namespace + ''' istio-injection=enabled
+                            kubectl label namespace ${params.namespace} istio-injection=enabled
                             kubectl get secret db-password -n default -o yaml | \\
                                 grep -v '^\\s*namespace:\\s' | \\
                                 grep -v '^\\s*uid:\\s' | \\
                                 grep -v '^\\s*resourceVersion:\\s' | \\
                                 grep -v '^\\s*creationTimestamp:\\s' | \\
-                                kubectl apply -n ''' + params.namespace + ''' -f -
+                                kubectl apply -n ${params.namespace} -f -
                       """
                     }
                 }
