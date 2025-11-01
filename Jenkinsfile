@@ -26,6 +26,9 @@ pipeline {
             }
         }
         stage('Namespace and Istio config') {
+            when {
+                expression { params.namespace != null && params.namespace != '' }
+            }
             steps {
                 script {
                     container('infra-tools') {
